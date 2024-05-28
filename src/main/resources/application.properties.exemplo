@@ -1,0 +1,6 @@
+spring.application.name=clinica_estetica
+spring.datasource.url=jdbc:postgresql://localhost:5432/dbnome
+spring.datasource.username=username
+spring.datasource.password=password
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.jpa.hibernate.ddl-auto=update
