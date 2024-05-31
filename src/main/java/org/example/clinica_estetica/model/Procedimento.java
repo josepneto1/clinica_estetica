@@ -14,6 +14,8 @@ public class Procedimento implements Serializable {
 
     private String nome;
 
+    private double preco;
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -28,5 +30,13 @@ public class Procedimento implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 }
