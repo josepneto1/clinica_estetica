@@ -3,11 +3,9 @@ package org.example.clinica_estetica.model;
 import jakarta.persistence.*;
 
 import java.util.Date;
-import java.util.Objects;
 
 @Entity
 @Table(name = "cliente")
-@PrimaryKeyJoinColumn(name = "id")
 public class Cliente extends Pessoa{
 
     private static final long serialVersionUID = 1L;
