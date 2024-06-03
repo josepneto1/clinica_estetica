@@ -3,6 +3,7 @@ package org.example.clinica_estetica.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "procedimento")
@@ -14,7 +15,7 @@ public class Procedimento implements Serializable {
 
     private String nome;
 
-    private double preco;
+    private BigDecimal preco;
 
     public void setId(Long id) {
         this.id = id;
@@ -32,11 +33,11 @@ public class Procedimento implements Serializable {
         this.nome = nome;
     }
 
-    public double getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 }
