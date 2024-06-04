@@ -16,10 +16,11 @@ public abstract class Pessoa implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_pessoa")
     private Long id;
 
+    @Column(length = 50, nullable = false)
     private String nome;
-
     private String email;
 
+    @Column(length = 15, nullable = false)
     private String telefone;
 
     public Long getId() {

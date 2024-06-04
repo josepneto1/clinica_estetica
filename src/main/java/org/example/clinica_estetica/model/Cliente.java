@@ -10,9 +10,10 @@ public class Cliente extends Pessoa{
 
     private static final long serialVersionUID = 1L;
 
-    @Column(nullable = false)
+    @Column(length = 11, nullable = false)
     private String cpf;
 
+    @Column(length = 30)
     private String cidade;
 
     @Temporal(TemporalType.DATE)

@@ -1,6 +1,7 @@
 package org.example.clinica_estetica.model;
 
 import jakarta.persistence.*;
+import org.example.clinica_estetica.enums.StatusValorReceber;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -19,28 +20,32 @@ public class Atendimento implements Serializable {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "pessoa_id", nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "pessoa_fk"))
-    private Pessoa pessoa;
+    @JoinColumn(name = "cliente_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cliente_fk"))
+    private Cliente cliente;
 
-    private String responsavelPeloAtendimento;
+    @ManyToOne
+    @JoinColumn(name = "funcionario_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "funcionario_fk"))
+    private Funcionario funcionario;
 
     @ManyToOne
     @JoinColumn(name = "procedimento_id", nullable = false,
             foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "procedimento_fk"))
     private Procedimento procedimento;
 
+    @Column(nullable = false)
     private BigDecimal valorTotal;
 
     private BigDecimal valorDesconto;
 
-    @ManyToOne
-    @JoinColumn(name = "forma_pagamento_id", nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "forma_pagamento_id"))
-    private FormaPagamento formaPagamento;
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private StatusValorReceber status;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date data;
+    private Date dataAtendimento;
 
     public Long getId() {
         return id;
@@ -50,20 +55,28 @@ public class Atendimento implements Serializable {
         this.id = id;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public String getResponsavelPeloAtendimento() {
-        return responsavelPeloAtendimento;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setResponsavelPeloAtendimento(String responsavelPeloAtendimento) {
-        this.responsavelPeloAtendimento = responsavelPeloAtendimento;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
+    }
+
+    public Date getDataAtendimento() {
+        return dataAtendimento;
+    }
+
+    public void setDataAtendimento(Date dataAtendimento) {
+        this.dataAtendimento = dataAtendimento;
     }
 
     public Procedimento getProcedimento() {
@@ -90,20 +103,20 @@ public class Atendimento implements Serializable {
         this.valorDesconto = valorDesconto;
     }
 
-    public FormaPagamento getFormaPagamento() {
-        return formaPagamento;
+    public StatusValorReceber getStatus() {
+        return status;
     }
 
-    public void setFormaPagamento(FormaPagamento formaPagamento) {
-        this.formaPagamento = formaPagamento;
+    public void setStatus(StatusValorReceber status) {
+        this.status = status;
     }
 
     public Date getData() {
-        return data;
+        return dataAtendimento;
     }
 
     public void setData(Date data) {
-        this.data = data;
+        this.dataAtendimento = data;
     }
 
     @Override

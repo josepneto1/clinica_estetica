@@ -13,8 +13,10 @@ public class Procedimento implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_procedimento")
     private Long id;
 
+    @Column(length = 30, nullable = false)
     private String nome;
 
+    @Column(nullable = false)
     private BigDecimal preco;
 
     public void setId(Long id) {
