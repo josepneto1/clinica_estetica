@@ -4,3 +4,26 @@ spring.datasource.username=username
 spring.datasource.password=password
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.jpa.hibernate.ddl-auto=update
+
+spring.jpa.properties.hibernate.temp.use_jdbc_metadata_defaults=true
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+server.servlet.context-path=/clinica_estetica
+
+spring.servlet.multipart.max-file-size=10000KB
+spring.servlet.multipart.max-request-size=10000KB
+spring.servlet.multipart.enabled=true
+
+server.compression.enabled=true
+server.compression.mime-types=text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+server.compression.min-response-size=1024
+server.http2.enabled=true
+
+spring.servlet.encoding.charset=UTF-8
+spring.servlet.encoding.enabled=true
+spring.servlet.encoding.force=true
+spring.servlet.encoding.force-request=true
+spring.servlet.encoding.force-response=true
+
+spring.datasource.hikari.auto-commit=false
+spring.session.jdbc.cleanup-cron=0 0 4 * * *
