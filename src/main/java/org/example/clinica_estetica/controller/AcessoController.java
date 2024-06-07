@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 @RestController
 public class AcessoController {
@@ -35,5 +37,31 @@ public class AcessoController {
         acessoRepository.deleteById(acesso.getId());
 
         return new ResponseEntity("Acesso removido", HttpStatus.OK);
+    }
+
+    @ResponseBody
+    @DeleteMapping(value = "/deletarAcessoPorId/{id}")
+    public ResponseEntity<?> deletarAcessoPorId(@PathVariable("id") Long id) {
+
+        acessoRepository.deleteById(id);
+
+        return new ResponseEntity("Acesso removido por id", HttpStatus.OK);
+    }
+
+    @ResponseBody
+    @GetMapping(value = "/obterAcesso/{id}")
+    public ResponseEntity<Acesso> obterAcesso(@PathVariable("id") Long id) {
+
+        Acesso acesso = acessoRepository.findById(id).get();
+
+        return new ResponseEntity<Acesso>(acesso, HttpStatus.OK);
+    }
+    @ResponseBody
+    @GetMapping(value = "/buscarPorDescricao/{descricao}")
+    public ResponseEntity<List<Acesso>> buscarPorDescricao(@PathVariable("descricao") String descricao) {
+
+        List<Acesso> acesso = acessoRepository.buscarAcessoDescricao(descricao);
+
+        return new ResponseEntity<List<Acesso>>(acesso, HttpStatus.OK);
     }
 }

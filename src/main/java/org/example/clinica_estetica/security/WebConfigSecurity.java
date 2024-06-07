@@ -17,6 +17,7 @@ public class WebConfigSecurity implements HttpSessionListener {
     public WebSecurityCustomizer webSecurityCustomizer() {
         return (web) -> web.ignoring()
                 .requestMatchers(HttpMethod.GET, "/salvarAcesso")
+                .requestMatchers(HttpMethod.GET, "/obterAcesso/{id}")
                 .requestMatchers(HttpMethod.POST, "/salvarAcesso")
                 .requestMatchers(HttpMethod.DELETE, "/deletarAcesso");
     }
