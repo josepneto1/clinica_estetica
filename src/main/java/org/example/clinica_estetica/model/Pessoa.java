@@ -18,7 +18,6 @@ public abstract class Pessoa implements Serializable {
 
     @Column(length = 50, nullable = false)
     private String nome;
-    private String email;
 
     @Column(length = 15, nullable = false)
     private String telefone;
@@ -37,14 +36,6 @@ public abstract class Pessoa implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getTelefone() {
